@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>
+  const items1 = ["가지 1개", "간장 2스푼", "설탕1.5스푼", "식초 1스푼", "식초 1스푼", "다진마늘 1/2스푼", "버터 2스푼"]
+  const recipe1 = React.createElement(
+    "ul",
+    null,
+    items1.map((item, i) => React.createElement("li",{key:i},item))
+  )
+  const items2 = ["돼지고기 앞다리살 500그램", "배추김치 1쪽", "대파 1개", "청양고추 2개", "물 800ml", "된장 1스푼", "들기름 2스푼", "설탕 1/2스푼", "다진마늘 1스푼", " 후추 2꼬집"]
+  const recipe2 = React.createElement(
+    "ul",
+    null,
+    items2.map((item, i)=> React.createElement("li", {key:i}, item))
+  )
+  const items3 = ["팽이버섯 1봉지", "청양고추 1개", "식용유 2스푼", "다진마늘 1큰술", "고추가루 1/2스푼", "설탕 1스푼", "미림 2스푼", "진간장 1스푼", "굴소스 1/2스푼", "고추장 1/3스푼", "된장 1/3 스푼", "물 2스푼"]
+  const recipe3 = React.createElement(
+    "ul",
+    null,
+    items3.map((item, i) => React.createElement("li", {key:i}, item))
+  )
+  ReactDOM.render([recipe1, recipe2, recipe3], document.querySelector("#root"))
+
+</script>
+</html>
