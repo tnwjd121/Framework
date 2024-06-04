@@ -1,0 +1,9 @@
+웹팩 소개
+
+Node.js 설치
+컴퓨터 OS에서 javascript의 실행 환경
+
+https://node.js.org/en 접속
+Downlod node.js 클릭
+
+설치

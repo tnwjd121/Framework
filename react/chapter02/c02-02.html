@@ -48,6 +48,18 @@
   function Recipe({name, ingredients, steps, idName}){
     return(
       <section id={"section"+idName}>
+        <h2>{name}</h2>
+        <ul className="ingredients">
+          {ingredients.map((ingredient, i)=>(
+            <li key={i}>{ingredient.name}</li>
+          ))}
+        </ul>
+        <section className="instructions">
+          <h2>조리 절차</h2>
+          {steps.map((step, i) => (
+            <p key={i}>{step}</p>
+          ))}
+        </section>
       </section>
     )
   };
@@ -59,13 +71,12 @@
             <h1>{props.title}</h1>
           </header>
           <div className="recipes">
-            {props.recipies.map((recipe,i)=>{
+            {props.recipies.map((recipe,i)=>(
               // <Recipe key={i} name={recipe.name} ingredients={recipe.ingredients} steps={recipe.steps}/>
               // jsx의 스프레드 연산자를 사용하면 코드를 개선할 수 있다.
               <Recipe key={i} {...recipe} idName={i}/>
               // 스프레드 연산자는 recipe 객체의 각 필드를 Recipe 컴포넌트의 속성으로 추가해준다.
-
-            })}
+            ))}
           </div>
         </article>
       )
