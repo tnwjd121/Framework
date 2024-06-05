@@ -15,7 +15,7 @@ const createArray = length=>[...Array(length)]
 
 export default function StarRating({totalStars=5}){
   const [selectedStars, setSelectedStars] = useState(3);
-  
+  // selectedStart=5 오류가 발생이 되고 화면 갱신(렌더링)도 되지 않습니다
   return(
     <>
       {createArray(totalStars).map((n,i)=>
