@@ -29,13 +29,30 @@ import './App.css'
 import { useState } from "react";
 import colorData from "./color-data.json"
 import ColorList from "./components/ColorList.js";
-import AddColorForm from './components/AddColorForm.js';
+import AddColorCustom from './components/AddColorCustom.js';
 
+/* 
+  색을 상태에 추가하기
+  title과 color의 값을 onNewColor함수를 통해 부모에게 전달한다.
+
+*/
 function App() {
   const [colors, setColors] = useState(colorData.color)
+  let colorCount = colors.length
   return(
     <>
-      <AddColorForm/>
+      <AddColorCustom onNewColor={(title,color)=>{
+        const newColor = [
+          {
+            "id" : colorCount++,
+            "title" : title,
+            "color" : color,
+            "rating" : 0
+          },
+          ...colors
+        ]
+        setColors(newColor)
+        }}/>
       <ColorList 
       colors={colors} 
       onRemoveColor={id=>{

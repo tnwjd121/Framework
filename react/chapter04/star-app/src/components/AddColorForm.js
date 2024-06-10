@@ -10,6 +10,7 @@ import React, { useRef } from 'react'
 
 /* 
   useRef 훅을 사용해 2가지 참조를 만든다. txtTitle 참조는 색의 이름을 수집하기 위해 폼에 추가한 텍스트 입력에 대한 참조에 쓰인다. hexColor 참조는 HTML 색 입력의 16진 색 값에 접근하기 위한 참조에 쓰인다. ref 속성을 사용하여 JSX에 참조의 값을 직접 설정한다.
+  AddColorForm은 DOM을 통해 폼 값을 저장하기 때문에 제어되지 않는 컴포넌트가 된다. 예를 들어 리액트 밖에서 폼에 접근해 폼에 속한 입력 값을 처리하고 싶을 때 사용될 수 있지만 제어가 되는 컴포넌트가 더 좋은 접근 방법이다.
 */
 
 export default function AddColorForm({onNewColor=f=>f}) {
