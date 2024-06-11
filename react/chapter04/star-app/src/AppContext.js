@@ -1,11 +1,12 @@
 import React from 'react'
-import AddColorCustom from './components/AddColorCustom'
+
 import ColorListContextHook from './components/ColorListContextHook'
+import AddColorWithContext from './components/AddColorWithContext'
 
 export default function AppContext() {
   return (
     <>
-      <AddColorCustom/>
+      <AddColorWithContext/>
       <ColorListContextHook/>
     </>
   )
