@@ -1,10 +1,11 @@
-import React from 'react'
-import UseCallbackHook from './components/UseCallbackHook'
+// src/App2.js
 
+import UseCallbackHook from "./components/UseCallbackHook"
+import WordCount from "./components/WordCount"
 
-export default function App2() {
-  return (
-    // <WordCount>You are not going to believe this but...</WordCount>
-    <UseCallbackHook/>
-  )
+function App2(){
+    // return <WordCount>You are not going to believe this but...</WordCount>
+    return <UseCallbackHook />
 }
+
+export default App2

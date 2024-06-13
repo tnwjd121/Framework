@@ -7,6 +7,8 @@
 3 브라우저 화면 그리기 : 이 시점에 컴포넌트에 해당하는 엘리먼트가 실제로 DOM에 추가됨
 4 useEffect가 호출됨
 */
+import { useEffect,useLayoutEffect } from "react"
+import UseWindowSize from "./components/UseWindowSize"
 import UseMousePosition from "./components/UseMousePosition"
 function App3(){
     // useEffect(()=>console.log("useEffect"))
