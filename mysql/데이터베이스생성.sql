@@ -11,3 +11,5 @@ collate utf8_general_ci;
 
 -- 데이터베이스 생성한 것을 확인 한다
 show databases; 
+
+
