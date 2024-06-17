@@ -86,5 +86,10 @@ public class ThymeleafExController {
 		return "tl/tlEx05";
 	}
 	
+	@GetMapping(value="/ex07")
+	public String tymeleafExample07() {
+		return "tlEx07";
+	}
+	
 
 }

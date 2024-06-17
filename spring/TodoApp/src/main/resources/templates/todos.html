@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <title>Insert title here</title>
+</head>
+   <h1>todos</h1>
+   <div th:each="todo:${todos}">
+   		<div th:text="${todo.id}"></div>
+   		<div th:text="${todo.content}"></div>
+   		<div th:text="${todo.completed}"></div>
+   </div>
+</body>
+</html>
