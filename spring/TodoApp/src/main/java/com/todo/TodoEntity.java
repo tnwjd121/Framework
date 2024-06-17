@@ -17,7 +17,7 @@ public class TodoEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(length = 200)
+	@Column(length = 200, nullable=false)
 	private String content;
 	@Column(nullable=false)
 	private Boolean completed;
