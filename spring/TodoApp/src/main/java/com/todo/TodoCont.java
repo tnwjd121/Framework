@@ -1,15 +1,11 @@
 package com.todo;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import lombok.RequiredArgsConstructor;
 
 @Controller
 public class TodoCont {
@@ -26,5 +22,15 @@ public class TodoCont {
 		model.addAttribute("todos", tService.getTodos());
 		return "todos";
 	}
+	
+	@PostMapping("/put")
+	public String putTodo(TodoEntity tEntity) {
+		System.out.println(tEntity);
+		return "redirect:/";
+	}
+//	public String putTodo(String content) {
+//		System.out.println(content);
+//		return "todos";
+//	}
 
 }

@@ -4,7 +4,15 @@
 <meta charset="utf-8">
  <title>Insert title here</title>
 </head>
-   <h1>todos</h1>
+   <h1>Todos</h1>
+   <!-- 
+   get 방식 요청: 주소창에 데이터가 노출 
+   post 방식 요청 : 주소창에 데이터가 노출 안됨
+   -->
+   <form th:action="@{/put}" method="post">
+   		<input name="content" placeholder="put todo...">
+   		<input type="submit">
+   </form>
    <div th:each="todo:${todos}">
    		<div th:text="${todo.id}"></div>
    		<div th:text="${todo.content}"></div>
