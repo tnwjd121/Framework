@@ -8,6 +8,7 @@ public class CardatabaseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CardatabaseApplication.class, args);
+		
 	}
 
 }
