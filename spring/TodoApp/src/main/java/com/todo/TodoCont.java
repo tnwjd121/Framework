@@ -29,7 +29,9 @@ public class TodoCont {
 	@PostMapping("/put")
 //	requesetParam 생략 가능
 	public String putTodo(TodoEntity tEntity) {
-		tEntity.setCompleted(false);
+		if(tEntity.getCompleted()==null) {
+			tEntity.setCompleted(false);
+		}
 		tService.putTodo(tEntity);
 		return "redirect:/";
 	}
@@ -37,6 +39,19 @@ public class TodoCont {
 	@GetMapping("/delete/{id}")
 	public String deleteTodo(@PathVariable Integer id) {
 		tService.deleteTodo(id);
+		return "redirect:/";
+	}
+	@GetMapping("/update/{id}")
+	public String updateTodo(@PathVariable Integer id, Model model) {
+		// id값을 이용하여 한개의 todo 가져오기
+		TodoEntity tEntity  = tService.getTodo(id);
+		model.addAttribute("todo",tEntity);
+		return "update-todo";
+	}
+	@GetMapping("/updateCompleted")
+	public String updateCompleted(TodoEntity tEntity) {
+		tEntity.setCompleted(!tEntity.getCompleted());
+		tService.putTodo(tEntity);
 		return "redirect:/";
 	}
 

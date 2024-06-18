@@ -38,21 +38,23 @@
 							<tr>
 								<th>No.</th>
 								<th>Todo item</th>
-								<th>Status</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:each="todo:${todos}">
 								<td th:text="${todo.id}"></td>
-								<td th:text="${todo.content}"></td>
-								<td th:text="${todo.completed}"></td>
+								<td class="text-decoration-line-through" th:if="${todo.completed}" th:text="${todo.content}"></td>
+								<td th:unless="${todo.completed}" th:text="${todo.content}"></td>
 								<td>
-									<button class="btn btn-success">Finished</button>
-									<button class="btn btn-warning"
-									data-bs-toggle="modal" data-bs-target="#editModal"
-									th:attr="data-bs-target=${'#editModal'+todo.id}"
-									>Edit</button>
+									<a th:href="@{/updateCompleted(id=${todo.id}, 
+									content=${todo.content}, completed=${todo.completed})}">
+										<button th:if="${todo.completed}"class="btn btn-success">Not Done</button>
+										<button th:unless="${todo.completed}"class="btn btn-success">Done</button>
+									</a>
+									<a th:href="@{/update/{id}(id=${todo.id})}">
+										<button class="btn btn-warning">Update</button>
+									</a>
 									<a th:href="@{/delete/{id}(id=${todo.id})}">
 										<button class="btn btn-danger">Delete</button>									
 									</a>
@@ -64,24 +66,6 @@
 			</div>
 		</div>
 	</section>
-<!-- Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Todo</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
