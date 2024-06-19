@@ -1,0 +1,2 @@
+npm install @mui/material react @emotion/styled
+npm install @mui/x-data-grid
