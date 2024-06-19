@@ -5,16 +5,26 @@ import {DataGrid} from "@mui/x-data-grid"
 // 여기에는 field는 자동차 객체의 속성이다.
 // 열의 제목은 headerName속성으로 설정 할 수 있다.
 // 열의 너비도 여기에서 설정 가능하다.
-const columns=[
-  {field:"brand",headerName:"Brand", width:200},
-  {field:"model",headerName:"Model", width:200},
-  {field:"color",headerName:"Color", width:200},
-  {field:"year",headerName:"Year", width:150},
-  {field:"price",headerName:"Price", width:150},
-]
 
 
 export default function Carlist() {
+  const columns=[
+    {field:"brand",headerName:"Brand", width:200},
+    {field:"model",headerName:"Model", width:200},
+    {field:"color",headerName:"Color", width:200},
+    {field:"year",headerName:"Year", width:150},
+    {field:"price",headerName:"Price", width:150},
+    {
+      field: "actions",
+      headerName: "Actions",
+      width: 150,
+      renderCell: (params) => (
+        <button onClick={() => onDelClick(params.row._links.self.href)}>
+          Delete
+        </button>
+      ),
+    },
+  ]
   //REST API에서 가져온 자동차 정보를 담을 싱태 객체가 필요하다
   // 비어 있는 배열을 기본값으로 cars라는 상태를 선언한다
   const [cars, setCars]=useState([])
@@ -45,13 +55,13 @@ export default function Carlist() {
     .catch(err=>console.error(err))
   }
   return (
-    <div>
+    <div style={{width:'100%'}}>
       <DataGrid 
       columns={columns} 
       rows={cars}
       getRowId={row=>row._links.self.href}
       />
-      <table>
+      {/* <table>
         <tbody>
           {cars.map((car, index)=>
             <tr key={index}>
@@ -64,7 +74,7 @@ export default function Carlist() {
             </tr>
           )}
         </tbody>
-      </table>
+      </table> */}
     </div>
   )
 }
