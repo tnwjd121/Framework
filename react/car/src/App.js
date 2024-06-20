@@ -1,6 +1,6 @@
-import './App.css';
 import { AppBar, Toolbar, Typography } from "@mui/material"
 import Carlist from './component/Carlist';
+import AddCar from './component/AddCar';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Carlist></Carlist>
+      <Carlist/>
     </div>
   );
 }
